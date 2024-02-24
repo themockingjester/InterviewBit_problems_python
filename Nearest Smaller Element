@@ -1,0 +1,26 @@
+class Solution:
+	# @param A : list of integers
+	# @return a list of integers
+	def prevSmaller(self, A):
+        nums=A
+        myStack = []
+        pleArr=[]
+        for i in range(0,len(nums)):
+            curr = nums[i]
+            currAns = -1
+            while len(myStack)>0:
+                if myStack[-1]>=curr:
+                    myStack.pop()
+                else:
+                    currAns = myStack[-1]
+                    myStack.append(curr)
+                    break
+            else:
+                myStack.append(curr)
+            pleArr.append(currAns)
+        
+        return pleArr
+            
+
+
+        
